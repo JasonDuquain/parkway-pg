@@ -1,0 +1,67 @@
+:root {
+	box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+*, ::before, ::after {
+    box-sizing: inherit;
+    text-decoration: none;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+
+/* check for overflowed elements - use mobile devtools simulator
+
+* {
+    outline: 1px solid red;
+}
+
+*/
+
+
+
+body {
+    font-size: 100%;
+    font-family: 'Lato', sans-serif;
+    
+    //overflow-x: hidden;
+    
+    
+    @include breakpoint (max-width 1130px) {
+        font-size: .95em;
+    }
+}
+
+section {
+    padding: 6em 2em;
+}
+
+.pre-heading {
+    text-transform: uppercase;
+    text-align: center;
+    color: $gray-dark;
+    margin-bottom: .2em;
+}
+
+.sect-heading {
+    font-size: 2.3em;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: .2em;
+    color: $gray-darker;
+}
+
+.sect-heading-img {
+    height: 13px;
+    width: 142px;
+    background-image: url('../img/heading-img.svg');
+    margin: 0 auto 3em auto;
+    opacity: .5;
+}
+
+
+

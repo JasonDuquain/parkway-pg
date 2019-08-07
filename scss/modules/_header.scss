@@ -1,0 +1,526 @@
+
+.header {
+       
+    &__top-sect {
+        border-top: 5px solid $gray-darker; 
+    }
+    
+    &__top-sect-container {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    
+    &__top-bar {
+        background: url('../img/cner-536.png') no-repeat top center;
+        
+        height: 39px;
+        width: 536px;
+        
+        position: relative;
+        right: -55vw;
+
+        @include breakpoint (max-width 1280px) {
+            right: -50vw;
+        }
+        
+        @include breakpoint (max-width 1130px) {
+            right: -45vw;
+        }
+        
+        @include breakpoint (max-width 1020px) {
+            right: -40vw;
+        }
+        
+        @include breakpoint (max-width $mobile-hamburger) {
+            right: -35vw;
+        }
+        
+        @include breakpoint (max-width 840px) {
+            background: url('../img/cner-301.png') no-repeat top center;
+            right: -57vw;
+            width: 301px;
+        }
+        
+        @include breakpoint (max-width 720px) {
+            right: -47vw;
+        }
+        
+        @include breakpoint (max-width 615px) {
+            background: none;
+            width: 100%;
+            right: 0;
+        }
+    }
+    
+    &__top-bar-contact {   
+        position: absolute; 
+        right: 4em;
+        top: 50%;
+        transform: translateY(calc(-50% - 5px));
+        color: #fff;
+        display: flex;
+        align-items: center;    
+        padding: 1em 0;
+        
+        @include breakpoint (max-width 840px) {
+            right: 6em;
+        }
+
+        @include breakpoint (max-width 615px) {
+            right: .25em;
+            
+            // allow phone # to go above logo
+            z-index: 5565;
+        }
+        
+    }
+    
+    &__top-bar-item + &__top-bar-item {
+        margin-left: 1.5em;
+    }
+    
+    
+    &__top-bar-item:last-of-type {
+        @include breakpoint (max-width 840px) {
+            display: none;
+        }
+    }
+    
+    &__top-bar-icon {
+        color: $aqua;
+        margin-right: .3em;
+        
+        @include breakpoint (max-width 615px) {
+            margin-right: .1em;
+        }
+    }
+    
+    &__top-bar-icon.fa-phone::before {
+        font-size: 1.25em;
+        display: inline-block;
+        transform: translateY(.1em);
+        
+        @include breakpoint (max-width 615px) {
+            font-size: 1.1em;
+            transform: translateY(.2em);
+        }
+    }
+    
+    /* phone icon text  */
+    &__phone-icon {
+        font-size: .9em;
+
+        @include breakpoint (max-width 615px) {
+            font-size: .8em;
+        }
+    }
+
+    
+    
+    &__top-bar-link {
+        color: #fff;
+        transition: color 300ms ease-out;
+        
+        &:hover {
+            color: darken(#fff, 15%);
+        }
+        
+        @include breakpoint (max-width 615px) {
+            color: #333;
+            
+            &:hover {
+                color: lighten(#333, 30%);
+            }
+        }
+    }
+    
+    &__main-sect {
+        max-width: 1280px;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 2em;
+        
+        @include breakpoint (max-width 1020px) {
+            padding: 0 1em;
+        }
+        
+    }
+    
+    &__logo {
+        transform: translateY(-37px);
+        margin-bottom: -30px; 
+        
+        @include breakpoint (max-width 615px) {
+            margin-left: auto;
+            margin-right: auto;
+        }
+    }
+
+    &__logo-image {
+        width: 15.625em;
+        height: auto;
+        display: block;
+    }
+    
+    &__nav-list {
+        display: flex;
+    }
+
+    &__nav-item {
+        padding: .5em 0;
+        position: relative;
+        z-index: 100;
+        transition: all 300ms ease-in;
+    }
+    
+    &__nav-item + &__nav-item {
+        margin-left: 1em;
+    }
+    
+    &__nav-item.has-submenu::after {
+        font-family: "fontawesome";
+        content: "\f078";
+        color: $gray-darker;
+    }
+    
+    &__nav-item:hover {
+        box-shadow: inset 0 -0.1875em 0 $royalblue;
+    }
+    
+    &__nav-item:hover .header__nav-link {
+        color: $royalblue;
+    }
+    
+
+    /* if submenus get removed go ahead and add pointer-events: none and change the cursor to some kind of not-allowed */
+    &__nav-item.clicked-parent {
+        box-shadow: inset 0 -0.1875em 0 $royalblue;
+        transition: none;
+    }
+    
+    &__nav-link.clicked {
+        color: $royalblue;
+        transition: none;
+    }
+    
+    
+    &__nav-link {
+        
+        font-size: .95em;
+        letter-spacing: .05em;
+        color: $gray-darker;
+        text-transform: uppercase;
+        transition: all 300ms ease-in;
+        
+        @include breakpoint (max-width 1020px) {
+            font-size: .85em;
+        }
+        
+    }
+    
+    /**** 2nd LEVEL  ****/
+    &__nav-item ul {
+        opacity: 0;
+        visibility: hidden;
+        position: absolute;
+        top: 300%;
+        left: 0;
+        width: 15rem;
+        background-color: $gray-darker;
+        border-radius: 5px;
+        transition: all 300ms ease-out;
+    }
+    
+    &__nav-item ul li:not(:last-of-type){
+        border-bottom: 1px dotted #fff;
+    }
+    
+    &__nav-item:hover > ul {
+        opacity: 1;
+        visibility: visible;
+        top: 100%;
+    }
+    
+    &__nav-item ul a {
+        
+        font-size: .95em;
+        
+        display: block;
+        padding: 1rem 1.5rem;
+        font-family: inherit;
+        color: #fff;
+        text-transform: uppercase;
+        transition: color 300ms ease-out;
+        
+        @include breakpoint (max-width 1020px) {
+            font-size: .9em;
+        }
+        
+    }
+    
+    &__nav-item ul li:hover a {
+        color: $aqua;
+    }
+    
+    &__nav-item ul li::after:hover {
+        color: $royalblue;
+    }
+    
+}
+
+
+.header.sticky {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.8);
+    box-shadow: 0 2px 2px rgba(0,0,0,.4);
+    z-index: 1001;
+    
+    & .header__top-sect {
+        display: none;
+    }
+    
+    & .header__logo-image {
+        width: 13.5em;
+        height: auto;
+        
+        // putting inside the sitcky class only so it will only xition on sticky menu in, not out 
+        transition: all 600ms ease-out;
+    }
+    
+    & .header__logo {
+        transform: none;
+        margin-bottom: 0;
+    }
+    
+    & .header__nav-link {
+        color: #fff;
+        
+    }
+    
+    & .header__nav-item.has-submenu::after {
+        color: #fff;
+    }
+    
+}
+
+
+
+
+.navigation__checkbox {
+    display: none;
+}
+
+@include breakpoint (max-width $mobile-hamburger) {
+
+    .navigation__button {
+        background-color: #444;
+        height: 50px;
+        width: 50px;
+        border-radius: 50%;
+        position: fixed;
+        top: 40px;
+        right: 15px;
+        z-index: 2000;
+        box-shadow: 0 1.5em 2em rgba(#000, .1);
+        text-align: center;
+        cursor: pointer;
+    }
+
+    .navigation__background {
+        height: 40px;
+        width: 40px;
+        border-radius: 50%;
+        position: fixed;
+        top: 45px;
+        right: 20px;
+        background-image: radial-gradient(rgba($royalblue, .8), rgba($aqua, .8));
+        z-index: 1000;
+
+        transition: transform 800ms cubic-bezier(.86, 0, .07, 1);
+    }
+
+    .header__nav {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        left: 0;
+        z-index: 1500;
+
+        //transition: all 800ms cubic-bezier(.68, -.55, .265, 1.55);
+        opacity: 0;
+
+        /* use transform instead for a smoother animation and also more performant  */
+        transform: translateX(-800px);
+
+        /* put the width 100% here  */
+        width: 100%;
+    }
+
+
+    .header__nav-list {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-align: center;
+
+        // changing from display: flex
+        display: block;
+    }
+
+    .header__nav-item.clicked-parent {
+        box-shadow: none;
+        background-color: #333;
+        transition: all 300ms ease-out;
+    }     
+
+    .header__nav-item {
+        margin-bottom: .5em;
+        margin-top: .5em;
+        margin-left: 0 !important;
+        
+        padding: .75em 1em;
+        
+        background-color: #fff;
+        
+        transition: all 300ms ease-out;
+    } 
+    
+    .header__nav-item:hover {
+        
+        transform: translateX(.75em);
+        background-color: #333;
+    }
+    
+    .header__nav-item:hover {
+        box-shadow: none;
+    }
+    
+    .header__nav-item:hover .header__nav-link {
+        color: #fff;
+    }
+    
+    .header__nav-item.has-submenu::after {
+        color: $royalblue;
+    }
+    
+    .header__nav-item.has-submenu:hover::after {
+        color: #fff;
+    }
+
+    .header__nav-link.clicked {
+        color: #fff;
+        transition: all 300ms ease-out;
+    }
+
+    .header__nav-link {
+        color: $royalblue;
+        transition: all 300ms ease-out;
+    }
+
+    .navigation__checkbox:checked ~ .navigation__background {
+        transform: scale(70);
+    }
+
+    .navigation__checkbox:checked ~ .header__nav {
+        opacity: 1;
+        transform: translateX(0);
+
+        transition: all 800ms cubic-bezier(.68, -.55, .265, 1.55);
+    }
+    
+    .header.sticky .navigation__checkbox:checked ~ .header__nav .header__nav-link.clicked {
+        color: #fff;
+    }
+    
+    .header.sticky .navigation__checkbox:checked ~ .header__nav .header__nav-link {
+        color: $royalblue;
+    }
+    
+    .navigation__checkbox:checked ~ .header__nav .header__nav-link.clicked {
+        color: #fff;
+    }
+    
+    .navigation__checkbox:checked ~ .header__nav .header__nav-link.clicked {
+        color: #fff;
+    }
+    
+    .header.sticky .navigation__checkbox:checked ~ .header__nav .header__nav-item:hover .header__nav-link  {
+        color: #fff;
+    }
+    
+    .header.sticky .navigation__checkbox:checked ~ .header__nav .header__nav-item.has-submenu::after {
+        color: $royalblue;
+    }
+    
+    .navigation__checkbox:checked ~ .header__nav .header__nav-item.clicked-parent.has-submenu::after  {
+        color: #fff;
+    }
+    
+    .header.sticky .navigation__checkbox:checked ~ .header__nav .header__nav-item.clicked-parent.has-submenu::after  {
+        color: #fff;
+    }
+    
+    .header.sticky .navigation__checkbox:checked ~ .header__nav .header__nav-item.has-submenu:hover::after {
+        color: #fff;
+    }
+    
+    .navigation__checkbox:checked ~ .header__nav .header__nav-item.has-submenu:hover > ul {
+        opacity: 0;
+        visibility: hidden;
+        top: 300%;
+    }
+
+    .navigation__icon {
+        position: relative;
+        margin-top: 1.55em;
+        
+        &, &::before, &::after {
+             width: 1.6em;
+             height: 2px;
+             background-color: #fff;
+             display: inline-block;
+        } 
+        
+        &::before, &::after {
+            content: "";
+            position: absolute;
+            transition: all 400ms;
+            left: 0;
+        }
+        
+        &::before { transform: translateY(-.45em); }
+        &::after { transform: translateY(.45em); }
+    }
+    
+    .navigation__button:hover .navigation__icon::before {
+        transform: translateY(-.55em);
+    }
+    
+    .navigation__button:hover .navigation__icon::after {
+        transform: translateY(.55em);
+    }
+    
+    .navigation__checkbox:checked + .navigation__button .navigation__icon {
+        background-color: transparent;
+    }
+    
+    .navigation__checkbox:checked + .navigation__button .navigation__icon::before {
+        transform: translateY(0) rotate(135deg);
+    }
+    
+    .navigation__checkbox:checked + .navigation__button .navigation__icon::after {
+        transform: translateY(0) rotate(-135deg);
+    }
+    
+    
+
+
+}
+
+

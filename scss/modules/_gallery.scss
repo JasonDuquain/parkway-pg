@@ -1,0 +1,46 @@
+
+.current {
+    padding-bottom: 0;
+    text-align: center;
+    
+    
+    &__image {
+        height: 700px;
+        width: 700px;
+        
+        @include breakpoint (max-width 720px) {
+            height: 325px;
+            width: 325px;
+        }
+    }
+    
+}
+
+
+.gallery {
+    
+    &.fullwidth {
+        padding: 0;
+        display: flex;
+    }
+    
+    &__image-wrap {
+        width: 25%;
+        background-color: #000;
+        overflow: hidden;
+    }
+    
+    &__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: .85;
+        transition: all 300ms ease-out;
+        
+        &:hover {
+            transform: scale(1.2);
+            opacity: 1;
+        }
+    }
+    
+}

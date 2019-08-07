@@ -1,0 +1,274 @@
+
+
+.cards {
+    background-color: lighten($gray-lighter, 5%);
+    
+    
+    &__main-wrap {
+        max-width: 1280px;
+        margin: 0 auto;
+    }
+    
+    &__grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        grid-gap: 2em;
+        align-items: center;
+    }
+    
+    &__wrap {
+        background-color: #fff;
+        border-radius: 10px;
+    }
+    
+    &__image-wrap {
+        position: relative;
+        width: 100%;
+        overflow: hidden;
+        z-index: 2;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    &__image {
+        width: 100%;
+        height: auto;
+        display: block;
+    }
+    
+    &__wave {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        bottom: 0;
+        height: 0;
+        
+        &::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-repeat: repeat;
+            height: 12px;
+            background-size: 20px 20px;
+            background-image: radial-gradient(circle at 10px -5px, transparent 14px, #fff 16px);
+        }
+        
+        &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background-repeat: repeat;
+            height: 12px;
+            background-size: 40px 20px;
+            background-image: radial-gradient(circle at 10px 15px, #fff 12px, transparent 13px);
+        }
+    }
+    
+    &__content {
+        padding: 1.5em; 
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__icon {
+        color: $royalblue; 
+        align-self: center;
+        
+        &::before {
+           margin: 0 !important;
+           font-size: 3em !important;
+        
+        }
+    }
+    
+    &__icon.flaticon-kindergarten {
+        &::before {
+           margin: 0 !important;
+           font-size: 3.2em !important;
+        
+        }
+    }
+    
+    
+    /* 3RD CARD START */
+    &__icon-large {
+        color: $royalblue !important;
+        
+        &::before {
+            font-size: 3em;
+        }
+    }
+    
+    &__subheading-brush {
+       position: relative;
+       padding-bottom: 20px;
+        
+        &::after {
+            background-color: #f27c7e;
+            position: absolute;
+            content: "";
+            padding: 0;
+            
+            // removed 1px to get rid of tiny border lines on outside of paintbrush
+            max-width: 274px; 
+            width: 100%;
+            display: inline-block;
+            background-image: url('../../img/footer_title_bg.png');
+            background-position: left bottom;
+            background-repeat: no-repeat;
+            bottom: 0;
+            left: 55%;
+            transform: translateX(-50%);
+            height: 14px;
+        }
+    }
+    
+    &__subheading-brush--2 {
+        &::after {
+            background-color: rgb(76, 114, 150);
+        }
+    }
+    
+    &__subheading-brush--3 {
+        &::after {
+            background-color: rgb(172, 193, 88);
+        }
+    }
+    
+    &__subheading-brush-span--1, &__subheading-brush-span--2, &__subheading-brush-span--3 {
+        font-weight: 700;
+    }
+    
+    &__subheading-brush-span--4, &__subheading-brush-span--5, &__subheading-brush-span--6{
+        font-family: 'Grand Hotel';
+        line-height: 1;
+        font-size: 1.6em;
+    }
+    
+    
+    /* 3RD CARD END */
+    
+    &__subheading {
+        margin: .5em 0 1em 0;
+        font-size: 1.7em;
+        font-weight: 300;
+        text-align: center;
+    }
+    
+    &__icon-wrap {
+        margin-bottom: 1em;
+        display: flex;
+        justify-content: center;
+    }
+    
+    &__icon:not(:last-of-type) {
+        margin-right: .3em;
+    }
+    
+    &__summary {
+        line-height: 1.5;
+    }
+    
+    &__btn {
+        margin: 3em 0;
+        align-self: center;
+    }
+    
+    /**************************************/
+    /**** 2nd row of new styled cards *****/
+    /**************************************/
+    &__grid-2 {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(325px, 1fr));
+        grid-gap: 2em;
+        align-items: center;
+        margin-top: 4em;
+    }
+    
+    &__wrap-2 {
+        position: relative;
+        overflow: hidden;
+        background-color: #fff;
+        border-radius: 10px;
+    }
+    
+    &__subheading-2 {
+        margin: .5em 0 0 0;
+        font-size: 1.7em;
+        font-weight: 400;
+        align-self: center;
+    }
+    
+    &__image-2 {
+        display: block;
+        width: 100%;
+        height: 100%;
+    }
+    
+    &__content-2 {
+        background-color: rgba(141,198,63,.9);;
+        //position: relative;
+    }
+    
+    &__content-wrap {
+        position: relative;
+    }
+    
+    &__svg-overlay {
+        position: absolute;
+        //bottom: 303px;
+        //left: 0;
+        
+        top: -80px;
+        left: 0;
+        
+        width: 100%;
+        height: 80px;
+        z-index: 2;
+        pointer-events: none;
+        color: rgba(141,198,63,.9);
+    }
+    
+    &__svg-overlay svg {
+        width: 100%;
+        height: 100%;
+        fill: currentColor;
+    }
+    
+    &__content-wrap {
+        position: absolute;
+        bottom: 0;
+        background-color: rgba(141,198,63,.9);
+        padding: 2em;
+        padding-top: 1em;
+        color: #fff;
+        
+        display: flex;
+        flex-direction: column;
+    }
+    
+    &__icon-2 {
+        color: #fff; 
+        align-self: center;
+        
+        &::before {
+           margin: 0 !important;
+           font-size: 3em !important;
+        
+        }
+    }
+    
+    &__summary-2 {
+        margin: 1em 0;
+    }
+    
+    &__btn-2 {
+        margin-top: 2em;
+        align-self: center;
+    }
+    
+}
+
